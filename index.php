@@ -1,24 +1,17 @@
 <?php
 
-    $conn = mysqli_connect("db:3306", "root", "root", "products");
+    require('./config/products.php'); 
 
-    if(mysqli_connect_errno()) {
-        echo "Database error: " . mysqli_connect_error();
-        exit();
-    }
-
-    $sql = "SELECT id,name,price FROM products";
-
+    $sql = "SELECT id,name,price FROM items";
 
     // query the DB and add the result to a php array
-    $result = mysqli_query($conn,$sql);
-    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $result = mysqli_query($conn, $sql);
+    $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
-    // free result from memory and close SQL coonnection
+    // free resultfrom memory and close SQL connection
     mysqli_free_result($result);
     mysqli_close($conn);
-
-
+    
 ?>
 
 
@@ -28,23 +21,34 @@
 <head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Products</title>
 </head>
 <body>
-    
+
+<main>
+    <h1>OUR PRODUCTS</h1>
+
     <table>
 
-
-        <tr>
-            <?php   
-            foreach($name as $products) :
-            ?>
-                <td><?php echo $products['name']; ?></td>
-            <?php endforeach ?>
+        <tr class="columns">
+            <th>Name</th>
+            <th>Price</th>
         </tr>
 
+        <tr>  
+            <?php foreach ($items as $item) :  ?>
+        <th>
+            <?php echo $item["name"]; ?>  
+        <th>
+            <?php echo $item["price"]; ?>      
+        </th>
 
+        </tr>
+
+        <?php endforeach ?>
     </table>
+</main>
 
 </body>
 </html>

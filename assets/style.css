@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 main {
@@ -15,7 +15,7 @@ main {
     background-color: antiquewhite;
     border-radius: 5px;
     padding: 2rem;
-    box-shadow: 5px 5px 5px rgb(105, 92, 76);
+    box-shadow: 5px 5px 5px rgb(255, 140, 0);
 }
 
 table {
@@ -34,15 +34,7 @@ tr {
 td {
     display: table-cell;
     vertical-align: inherit;
-}
-
-th {
-    display: table-cell;
-    vertical-align: inherit;
     font-weight: bold;
-}
-
-th, td {
     padding: 0.5rem 1rem;
     text-align: left;
     min-width: 8rem;
